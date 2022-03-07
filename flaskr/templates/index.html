@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>応援サイト</title>
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="header-title">応援サイト</div>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="explanation">
+                    <h1>あなただけのための応援メッセージを生成します</h1>
+                    <p>当サイト製作者にはセキュリティの知識が一切ございません。</p>
+                    <p>決して個人情報を入力しないでください。</p>
+                </div>
+                <form method="post" action="{{url_for('conform')}}" class="input-name">
+                    <p>ニックネームを入力</p>
+                    <input type="text" name="name" class="name input">
+                    <input type="submit" value="確認" class="btn conform input">
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="footer-title">
+                    <h1>フィーバータイム第一週</h1>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

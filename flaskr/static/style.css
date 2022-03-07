@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN";
+    background-color: bisque;
+}
+
+.container{
+    padding: 0 30px;
+}
+
+.clear{
+    clear: left;
+}
+
+/*ヘッダの情報*/
+
+header{
+    font-size: 20px;
+    background-color: rgb(110, 156, 224);
+    padding: 0;
+    height: 50px;
+}
+
+.header-title{
+    float: left;
+    padding: 10px 0;
+}
+
+/*メインの情報*/
+
+.explanation{
+    text-align: center;
+}
+
+.explanation h1{
+    padding: 50px 0;
+    margin: 0;
+}
+
+.explanation p{
+    margin: 0;
+    color: red;
+}
+
+.input-name{
+    margin: 30px 100px;
+    padding: 20px;
+    text-align: center;
+    border: 3px solid black;
+}
+
+.input-name p{
+    font-size: 20px;
+}
+
+.name{
+    padding: 5px 10px;
+}
+
+.input{
+    margin-bottom: 30px;
+}
+
+.forms{
+    display: inline;
+}
+
+.btn{
+    background-color: rgb(142, 142, 209);
+    display: inline-block;
+    color: white;
+    padding: 3px 6px;
+    margin: 0 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgb(96, 96, 211);
+}
+
+.message{
+    font-size: 50px;
+    color: red;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+}
+
+/*フッタの情報*/
+
+footer{
+    background-color: rgb(110, 156, 224);
+}
+
+.footer-title h1{
+    margin: 0;
+    padding: 40px 0;
+}

@@ -1,0 +1,37 @@
+from flask import Flask
+from flask import render_template, url_for,request
+from db import creat_names_table
+import sqlite3
+
+DATABASE = 'database.db'
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    creat_names_table()
+    return render_template('index.html')
+
+@app.route('/conform', methods=['POST'])
+def conform():
+    name = request.form['name']
+    
+    con = sqlite3.connect(DATABASE)
+    con.execute('INSERT INTO names VALUES(?)', [name])
+    con.commit()
+    con.close()
+    
+    return render_template('conform.html', name = name)
+
+@app.route('/cheer', methods=['POST'])
+def cheer():
+    con = sqlite3.connect(DATABASE)
+    db_names = con.execute('SELECT * FROM names').fetchall()
+    con.close()
+    
+    name = db_names[-1]
+    
+    return render_template('cheer.html', name = name[0])
+
+if __name__ == "__main__":
+    app.run()
