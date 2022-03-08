@@ -34,4 +34,4 @@ def cheer():
     return render_template('cheer.html', name = name[0])
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
