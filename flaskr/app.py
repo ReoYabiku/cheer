@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template, url_for,request
-from db import creat_names_table
+from flaskr import db ##look at this file from run.py but whyyyyyyyyyyy
 import sqlite3
 
 DATABASE = 'database.db'
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    creat_names_table()
+    db.creat_names_table()
     return render_template('index.html')
 
 @app.route('/conform', methods=['POST'])
