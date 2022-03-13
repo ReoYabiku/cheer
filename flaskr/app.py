@@ -12,8 +12,8 @@ def index():
     db.creat_names_table()
     return render_template('index.html')
 
-@app.route('/conform', methods=['POST'])
-def conform():
+@app.route('/confirmm', methods=['POST'])
+def confirm():
     name = request.form['name']
     
     con = sqlite3.connect(DATABASE)
@@ -21,7 +21,7 @@ def conform():
     con.commit()
     con.close()
     
-    return render_template('conform.html', name = name)
+    return render_template('confirm.html', name = name)
 
 @app.route('/cheer', methods=['POST'])
 def cheer():
