@@ -12,9 +12,21 @@ def index():
     db.creat_names_table()
     return render_template('index.html')
 
-@app.route('/confirmm', methods=['POST'])
+@app.route('/confirm', methods=['POST'])
 def confirm():
     name = request.form['name']
+    
+    con = sqlite3.connect(DATABASE)
+    con.execute('INSERT INTO names VALUES(?)', [name])
+    con.commit()
+    con.close()
+    
+    return render_template('confirm.html', name = name)
+
+@app.route('/your_name', methods=['GET'])
+def your_name():
+    req = request.args
+    name = req.get("name")
     
     con = sqlite3.connect(DATABASE)
     con.execute('INSERT INTO names VALUES(?)', [name])
