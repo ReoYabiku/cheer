@@ -7,6 +7,8 @@ DATABASE = 'database.db'
 
 app = Flask(__name__)
 
+id = 0
+
 @app.route('/')
 def index():
     db.creat_names_table()
@@ -17,7 +19,11 @@ def confirm():
     name = request.form['name']
     
     con = sqlite3.connect(DATABASE)
-    con.execute('INSERT INTO names VALUES(?)', [name])
+    db_names = con.execute('SELECT * FROM names').fetchall()
+    global id
+    id = len(db_names)
+    
+    con.execute('INSERT INTO names VALUES(?, ?)', [id, name])
     con.commit()
     con.close()
     
@@ -41,9 +47,9 @@ def cheer():
     db_names = con.execute('SELECT * FROM names').fetchall()
     con.close()
     
-    name = db_names[-1]
+    name = db_names[id]
     
-    return render_template('cheer.html', name = name[0])
+    return render_template('cheer.html', name = name[1])
 
 if __name__ == "__main__":
     app.run(debug=True)
