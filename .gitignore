@@ -1,2 +1,2 @@
-flaskr/__pycache__/
-database.db
+/flaskr/__pycache__/
+/database.db
