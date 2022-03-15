@@ -35,7 +35,11 @@ def your_name():
     name = req.get("name")
     
     con = sqlite3.connect(DATABASE)
-    con.execute('INSERT INTO names VALUES(?)', [name])
+    db_names = con.execute('SELECT * FROM names').fetchall()
+    global id
+    id = len(db_names)
+    
+    con.execute('INSERT INTO names VALUES(?, ?)', [id, name])
     con.commit()
     con.close()
     
